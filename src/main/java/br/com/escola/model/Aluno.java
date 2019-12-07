@@ -8,15 +8,14 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity @Data @Table(name = "tb_usuario")
-public class Usuario {
+@Entity @Data @Table(name = "tb_aluno")
+public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String login;
-	private String senha;
 	private String nome;
-	private String cpf;
+	private String ra;
+	private String telefone;
 	private String DataCriacao;
 	private int status;	
 	

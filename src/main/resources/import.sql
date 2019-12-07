@@ -1,1 +1,1 @@
-#insert into usuario (id, login, senha) values (1, 'admin', 'admin');
+/*insert into tb_usuario (id, login, senha, status) values (2, 'admin', 'admin', 1);*/
