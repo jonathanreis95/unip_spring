@@ -24,6 +24,7 @@ public class Materia {
 	@ManyToOne
 	private Usuario usuario;
 	private String nome;
+	private String descricao;
 	private String qtd_aulas;	
 	private int status;	
 

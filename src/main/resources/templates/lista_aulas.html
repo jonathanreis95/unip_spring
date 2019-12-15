@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">>
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -10,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Olá, mundo!</title>
+    <title>Aulas</title>
 
     <style>
       body{
@@ -58,22 +59,10 @@
 
         <main role="main" class="container">
 
-            <div class=" mt-5 jumbotron">
-                <h1>Aula #15 - 14/12/2019</h1>
-                <p class="lead">Este exemplo é um simples exercício para ilustrar como navbars estáticas (no topo) funcionam. Assim, você verá que enquanto rola a página a navbar continua em sua posição original e move-se com o resto da página.</p>
-                <a class="btn btn-lg btn-primary" href="chamada.html" role="button">Faça a chamada »</a>
-            </div>
-
-            <div class=" mt-5 jumbotron">
-                <h1>Aula #14 - 13/12/2019</h1>
-                <p class="lead">Este exemplo é um simples exercício para ilustrar como navbars estáticas (no topo) funcionam. Assim, você verá que enquanto rola a página a navbar continua em sua posição original e move-se com o resto da página.</p>
-                <a class="btn btn-lg btn-primary" href="chamada.html" role="button">Faça a chamada »</a>
-            </div>
-
-            <div class=" mt-5 jumbotron">
-                <h1>Aula #13 - 12/12/2019</h1>
-                <p class="lead">Este exemplo é um simples exercício para ilustrar como navbars estáticas (no topo) funcionam. Assim, você verá que enquanto rola a página a navbar continua em sua posição original e move-se com o resto da página.</p>
-                <a class="btn btn-lg btn-primary" href="chamada.html" role="button">Faça a chamada »</a>
+            <div th:each="aula : ${aulas}" class=" mt-5 jumbotron">
+                <h1 th:text="${aula.DataAula}">Aula #15 - 14/12/2019</h1>
+                <p th:text="${aula.descricao}" class="lead"></p>
+                <a class="btn btn-lg btn-primary" href="/chamada" role="button">Faça a chamada »</a>
             </div>
       
         </main>
