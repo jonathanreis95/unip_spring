@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ListaMateriasController {
 
-	@GetMapping(value = {"/listaMaterias", "/"})
-	public String hello() {
+	@GetMapping(value = {"/listaMaterias"})
+	public String listaMaterias() {
 		return "materias";
 	}
 	
