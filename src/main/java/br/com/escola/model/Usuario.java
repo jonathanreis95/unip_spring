@@ -7,8 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Entity @Data @Table(name = "tb_usuario")
+@Getter
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +19,7 @@ public class Usuario {
 	private String senha;
 	private String nome;
 	private String cpf;
-	private String DataCriacao;
+	private String dataCriacao;
 	private int status;	
 	
 }

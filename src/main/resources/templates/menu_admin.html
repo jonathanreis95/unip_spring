@@ -42,9 +42,22 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-sm">
-                <form method="post" th:object="${materia}">
-                    <input type="button" value="Criar Matéria" class="btn btn-primary"></input>
-                </form>
+                <div class="mt-1">
+                    <form method="post" th:object="${materia}">
+                        <input type="button" value="Criar Matéria" class="btn btn-primary"></input>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mt-1">
+                    <form id="form_usuario" modelAttribute="usuario" method="post" th:object="${usuario}" th:action="@{/criarUsuario}">
+                        <input id="but_usuario" type="button" value="Criar Professor" class="btn btn-primary"></input>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
                 <div class="overflow-auto">
                     <div th:each="materia : ${materias}" class="jumbotron">
                         <h1>Matéria: <a th:text="${materia.usuario.nome}"></a></h1>
@@ -53,10 +66,7 @@
                 </div>
             </div>
             <div class="col-sm">
-                <form method="post" th:object="${usuario}">
-                    <input type="button" value="Criar Professor" class="btn btn-primary"></input>
-                </form>
-                <div class="overflow-auto">
+                <div class="overflow-auto" style="height: 100px;" >
                     <div th:each="usuario : ${usuarios}" class="jumbotron">
                         <h1>Professor: <a th:text="${usuario.nome}"></a></h1>
                         <p th:text="${usuario.cpf}" class="lead"></p>
@@ -65,6 +75,59 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#but_usuario').click(function () {
+            var form = document.getElementById('form_usuario');
+            var submit = document.createElement('input');
+            submit.setAttribute("type", "submit");
+            submit.setAttribute("value", "Criar Professor");
+            submit.classList.add("btn");
+            submit.classList.add("btn-success");
+            form.appendChild(submit);
+            var quebra = document.createElement('br');
+            form.appendChild(quebra);
+            var login = document.createElement('input');
+            login.setAttribute("type", "text");
+            login.setAttribute("placeholder", "Login");
+            login.setAttribute("name", "login");
+            form.appendChild(login);
+            var senha = document.createElement('input');
+            senha.setAttribute("type", "text");
+            senha.setAttribute("placeholder", "Senha");
+            senha.setAttribute("name", "senha");
+            form.appendChild(senha);
+            var nome = document.createElement('input');
+            nome.setAttribute("type", "text");
+            nome.setAttribute("placeholder", "Nome");
+            nome.setAttribute("name", "nome");
+            form.appendChild(nome);
+            var cpf = document.createElement('input');
+            cpf.setAttribute("type", "text");
+            cpf.setAttribute("placeholder", "CPF");
+            cpf.setAttribute("name", "cpf");
+            form.appendChild(cpf);
+            var data = document.createElement('input');
+            data.setAttribute("type", "date");
+            data.setAttribute("placeholder", "Data");
+            data.setAttribute("name", "dataCriacao");
+            form.appendChild(data);
+            var status = document.createElement('input');
+            status.setAttribute("type", "number");
+            status.setAttribute("placeholder", "Status");
+            status.setAttribute("name", "status");
+            form.appendChild(status);
+            this.remove();
+        });
+    </script>
 </body>
 
 </html>

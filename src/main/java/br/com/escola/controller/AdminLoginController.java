@@ -27,7 +27,7 @@ public class AdminLoginController {
 	public String fazerLoginAdmin(HttpServletRequest request, Admin admin) {
 		if (loginService.logarAdmin(admin)) {
 			request.getSession().setAttribute("adminlogado", admin);
-			return "redirect:/menu";
+			return "redirect:/menu_admin";
 		}
 		return "/login_admin";
 	}
