@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.escola.model.Aluno;
 import br.com.escola.model.Materia;
+import br.com.escola.repository.AlunoRepository;
 import br.com.escola.repository.MateriaRepository;
 import br.com.escola.model.Usuario;
 import br.com.escola.repository.UsuarioRepository;
@@ -27,26 +29,18 @@ public class MenuAdminController {
 	private MateriaRepository materiaRepo;
 	@Autowired
 	private UsuarioRepository usuarioRepo;
+	@Autowired
+	private AlunoRepository alunoRepo;
 
 	@GetMapping("/menu_admin")
 	public ModelAndView listaMaterias() {
 		ModelAndView mv = new ModelAndView("menu_admin");
 		List<Materia> materias = materiaRepo.findAll();
 		mv.addObject("materias", materias);
-		mv.addObject(new Materia());
 		List<Usuario> usuarios = usuarioRepo.findAll(Sort.by(Sort.Direction.DESC, "nome"));
 		mv.addObject("usuarios", usuarios);
-		mv.addObject(new Usuario());
+		List<Aluno> alunos = alunoRepo.findAll();
+		mv.addObject("alunos", alunos);
 		return mv;
-	}
-
-	@PostMapping("/criarUsuario")
-	public String criarUsuario(@ModelAttribute("usuario") @Validated Usuario usuario, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
-		if (result.hasErrors()) {
-			return "redirect:/menu_admin";
-		}else{	
-			usuarioRepo.save(usuario);
-			return "redirect:/menu_admin";
-		}
 	}
 }
