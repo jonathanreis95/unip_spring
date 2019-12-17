@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title> Escola System </title>	
+	<link rel="stylesheet" href="https://getbootstrap.com.br/docs/4.1/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://getbootstrap.com.br/docs/4.1/examples/sign-in/signin.css" />
+
+</head>
+
+  <body class="text-center">
+    <form class="form-signin mx-auto" method="post" th:object="${usuario}"
+				th:action="@{/fazerLogin}" style="margin: 20px 0">
+      <img alt="image-logo" src="https://www.unip.br/img/logo-unip-home.png" style="margin-left: -15px"/>
+      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      <label for="inputLogin" class="sr-only"></label>     
+      <input id="inputLogin" required type="text" class="form-control"
+						placeholder="Usuário" th:field="*{login}" />
+						
+		<label for="inputPassword" class="sr-only"></label>				
+		<input id="inputPassword" required
+			type="password" class="form-control" placeholder="Senha"
+			th:field="*{senha}" />
+            
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+  </body>
+  
+</html>
