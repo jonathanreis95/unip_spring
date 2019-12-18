@@ -24,7 +24,7 @@ public class Materia {
 	private Usuario usuario;
 	private String nome;
 	private String descricao;
-	private String qtd_aulas;	
+	private String qtdAulas;	
 	private int status;	
 
 }
