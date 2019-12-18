@@ -16,7 +16,7 @@
 		private MateriaAlunoRepository materiaAlunoRepo;
 		
 		
-		@GetMapping("/chamadas")
+		@GetMapping("/chamada")
 		public ModelAndView listaMaterias() {
 			ModelAndView mv = new ModelAndView("lista_chamadas");
 			/* TODO
