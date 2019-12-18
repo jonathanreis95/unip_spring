@@ -1,6 +1,7 @@
 package br.com.escola.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,9 @@ public class AdminLoginController {
 	@PostMapping("/fazerLoginAdmin")
 	public String fazerLoginAdmin(HttpServletRequest request, Admin admin) {
 		if (loginService.logarAdmin(admin)) {
-			request.getSession().setAttribute("adminlogado", admin);
+			request.getSession().setAttribute("adminLogado", admin);
 			return "redirect:/menu_admin";
 		}
-		return "/login_admin";
+		return "redirect:/admin";
 	}
 }
