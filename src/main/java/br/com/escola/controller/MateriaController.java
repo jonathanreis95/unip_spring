@@ -9,7 +9,7 @@
 	import br.com.escola.model.Materia;
 	import br.com.escola.model.Usuario;
 	import br.com.escola.repository.MateriaRepository;
-
+	
 	@Controller
 	public class MateriaController {
 		
@@ -18,18 +18,15 @@
 		
 		@GetMapping("/materias")
 		public ModelAndView listaMaterias(HttpServletRequest request) {			
-			
-			/* Pegar o usuario logado */
-			Usuario usuarios = (Usuario) request.getSession().getAttribute("usuarioLogado");
-			
-
 			ModelAndView mv = new ModelAndView("lista_materias");
 			/*
 			 * TODO: LISTAR AS MATERIAS SOMENTE DO USUARIO LOGADO
 			 * */
-			List<Materia> materias = materiaRepo.findAll();
+			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+			List<Materia> materias = materiaRepo.findByUsuario(usuario);
+			
 			mv.addObject("materias", materias);
-			mv.addObject("usuarios", usuarios);
+			mv.addObject("usuarios", usuario);
 			return mv;
 		}
 	}

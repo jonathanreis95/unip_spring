@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.escola.model.Usuario;
 import br.com.escola.service.LoginService;
+import java.util.Optional;
 
 @Controller
 public class LoginController {
@@ -25,10 +26,11 @@ public class LoginController {
 	
 	@PostMapping("/fazerLogin")
 	public String fazerLogin(HttpServletRequest request, Usuario usuario) {
-		if (loginService.logar(usuario)) {
-			request.getSession().setAttribute("usuarioLogado", usuario);
-			return "redirect:/materias";
-		}
+		Optional<Usuario> opUsuario = loginService.logar(usuario);
+				if (opUsuario.isPresent()) {
+					request.getSession().setAttribute("usuarioLogado", opUsuario.get());
+		 			return "redirect:/materias";
+		 		}
 		return "/login";
 	}
 }
