@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.escola.model.Aluno;
-import br.com.escola.model.Usuario;
 import br.com.escola.repository.AlunoRepository;
-import br.com.escola.repository.UsuarioRepository;
 
 @Controller
 public class CriarAlunoController {
