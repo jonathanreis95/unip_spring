@@ -20,7 +20,7 @@ public class MateriaAluno {
 	private Aluno aluno;
 	private String nota1;	
 	private String nota2;
-	private String total_falta;	
+	private String totalFalta;	
 	private int status;	
 	
 }
