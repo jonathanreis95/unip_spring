@@ -20,20 +20,14 @@
 
 <body class="text-center">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-unip">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/menu_admin">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="menu_admin">Home <span class="sr-only">(atual)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item active dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Adicionar</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -46,31 +40,41 @@
         </div>
     </nav>
     <main role="main" class="container">
-        <div class="row">
-            <div class="col-sm">
-                <div class="overflow-auto" style="height: 100px;" >
-                    <div th:each="aluno : ${alunos}" class="jumbotron">
-                        <h1>Aluno: <a th:text="${aluno.nome}"></a></h1>
-                        <p th:text="${aluno.ra}" class="lead"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="overflow-auto">
-                    <div th:each="materia : ${materias}" class="jumbotron">
-                        <h1>Matéria: <a th:text="${materia.usuario.nome}"></a></h1>
-                        <p class="lead"><a>Professor:</a><a th:text="${materia.nome}"></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm">
-                <div class="overflow-auto" style="height: 100px;" >
-                    <div th:each="usuario : ${usuarios}" class="jumbotron">
-                        <h1>Professor: <a th:text="${usuario.nome}"></a></h1>
-                        <p th:text="${usuario.cpf}" class="lead"></p>
-                    </div>
-                </div>
-            </div>
+ 	 	<div class="jumbotron bg-white" style="height: 328px;">
+         </div>
+      
+      	<div class="container">
+	        <div class="row ">
+	         <div class="col-4">
+	                <div class="overflow-auto" style="height: 100px;" >
+	                    <div th:each="usuario : ${usuarios}" class="jumbotron" style="height: 250px;">
+	                        <h1>Professor: <a th:text="${usuario.nome}"></a></h1>
+	                        <p th:text="${usuario.cpf}" class="lead"></p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	           <div class="col-4">
+	                <div class="overflow-auto">
+	                    <div th:each="materia : ${materias}" class="jumbotron" style="height: 250px;">
+	                        <h1>Matéria: <a th:text="${materia.usuario.nome}"></a></h1>
+	                        <p class="lead"><a>Professor:</a><a th:text="${materia.nome}"></a></p>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            
+	            <div class="col-4">
+	                <div class="overflow-auto">
+	                    <div th:each="aluno : ${alunos}" class="jumbotron"  style="height: 250px;">
+	                        <h1>Aluno: <a th:text="${aluno.nome}"></a></h1>
+	                        <p th:text="${aluno.ra}" class="lead"></p>
+	                    </div>
+	                </div>
+	            </div>
+
+	           
+	        </div>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
