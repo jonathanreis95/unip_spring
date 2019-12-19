@@ -17,15 +17,10 @@
                 <div th:each="materia : ${materias}" class="col-md-4">
                   <h2 th:text="${materia.nome}"></h2>
                   <p th:text="${materia.descricao}" class="altura-descricao"></p>
-                  <p><a class="btn btn-secondary" href="/aulas" role="button">Ver Aulas</a></p>
+                  <p><a th:data-materia="${materia.id}" class="btn btn-secondary btn-aula" role="button">Ver Aulas</a></p>
                 </div>
               </div>
               
-              <div th:each="usuario : ${usuarios}" class="col-md-4">
-                  <h2 th:text="${usuario.nome}"></h2>
-                </div>
-                
-      
               <hr>
       
             </div> <!-- /container -->
@@ -34,5 +29,15 @@
 
       
 		<div th:replace="footer_professor :: footer_professor"> </div>
+		
+		<script>
+		// PASSA O ID DA AULA POR PARAMETRO
+		
+			$('.btn-aula').on('click', function(){
+				id = $(this).attr('data-materia');				
+				window.location.href = "/aulas?id="+id;
+			});
+		
+		</script>
   </body>
 </html>
