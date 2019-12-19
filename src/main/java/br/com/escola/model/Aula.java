@@ -18,7 +18,7 @@ public class Aula {
 	private MateriaAluno materiaAluno;
 	private String descricao;
 	private String presenca;	
-	private String DataAula;
+	private String dataAula;
 	private int status;	
 	
 }

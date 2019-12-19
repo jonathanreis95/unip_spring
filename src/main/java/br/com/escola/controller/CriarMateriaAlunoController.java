@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.escola.model.Aluno;
 import br.com.escola.model.Materia;
@@ -42,12 +43,18 @@ public class CriarMateriaAlunoController {
 		return mv;
     }
     @PostMapping("/criarMateriaAluno")
-	public String criarAluno(@ModelAttribute("materiaAluno") @Validated MateriaAluno materiaAluno, BindingResult result, Model model) {
+	public String criarMateriaAluno(@ModelAttribute("materiaAluno") @Validated MateriaAluno materiaAluno, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "redirect:/criar_materia_aluno";
 		}else{	
 			materiaAlunoRepo.save(materiaAluno);
 			return "redirect:/criar_materia_aluno";
 		}
+	}
+	@PostMapping("/deletarMateriaAluno")
+	public String deletarMateriaAluno(@RequestParam(required = false) String idma) {
+			Long num = Long.parseLong(idma);
+			materiaAlunoRepo.deleteById(num);
+			return "redirect:/criar_materia_aluno";	
 	}
 }
