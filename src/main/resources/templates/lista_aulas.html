@@ -10,11 +10,17 @@
         
         <main role="main" class="container">
 
+			<div th:each="id : ${ids}" class=" mt-5 jumbotron">
+                <h1 th:text="${id.id}">Aula #15 - 14/12/2019</h1>
+            </div>
+            
             <div th:each="aula : ${aulas}" class=" mt-5 jumbotron">
                 <h1 th:text="${aula.DataAula}">Aula #15 - 14/12/2019</h1>
                 <p th:text="${aula.descricao}" class="lead"></p>
                 <a class="btn btn-lg btn-primary" href="/chamada" role="button">Faça a chamada »</a>
             </div>
+            
+            
       
         </main>
 
