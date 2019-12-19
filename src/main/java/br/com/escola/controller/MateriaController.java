@@ -19,14 +19,12 @@
 		@GetMapping("/materias")
 		public ModelAndView listaMaterias(HttpServletRequest request) {			
 			ModelAndView mv = new ModelAndView("lista_materias");
-			/*
-			 * TODO: LISTAR AS MATERIAS SOMENTE DO USUARIO LOGADO
-			 * */
 			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
 			List<Materia> materias = materiaRepo.findByUsuario(usuario);
 			
 			mv.addObject("materias", materias);
-			mv.addObject("usuarios", usuario);
+			mv.addObject("usuario", usuario);
 			return mv;
 		}
+		
 	}

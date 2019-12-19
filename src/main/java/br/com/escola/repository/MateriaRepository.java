@@ -7,4 +7,5 @@ import br.com.escola.model.Usuario;
 
 public interface MateriaRepository extends JpaRepository<Materia, Long> {
 	List<Materia> findByUsuario(Usuario usuario);
+	public Materia findOneById(Long id);
 }

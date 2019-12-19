@@ -11,15 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter @Setter @Data @AllArgsConstructor @NoArgsConstructor
-@Entity
-@Table(name = "tb_materia")
+@Entity @Data @Table(name = "tb_materia")
 public class Materia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

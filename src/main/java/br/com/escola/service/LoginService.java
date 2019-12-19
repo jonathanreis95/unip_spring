@@ -17,7 +17,7 @@ public class LoginService {
 	
 	public Optional<Usuario> logar(Usuario usuario) {
 		return Optional.ofNullable(usuarioRepo.findOneByLoginAndSenha(usuario.getLogin(), usuario.getSenha()));
-	 }
+	}
 	public boolean logarAdmin(Admin admin) {
 		return adminRepo.findOneByLoginAndSenha(admin.getLogin(), admin.getSenha()) != null;
 	}
