@@ -46,16 +46,19 @@
         </div>
     </nav>
     <main role="main" class="container">
+        
         <div class="jumbotron bg-white" style="height: 328px;">
-
-
+            <div th:object="${admin}" class="container">
+                <p >Bem Vindo: <a th:text="${admin.nome}"></a></p>
+            </div>
             <div class="container">
                 <div class="row ">
                     <div class="col-4">
                         <div class="overflow-auto" style="height: 250px;">
                             <div th:each="usuario : ${usuarios}" class="jumbotron" style="height: 250px;">
-                                <h1>Professor: <a th:text="${usuario.nome}"></a></h1>
-                                <p th:text="${usuario.cpf}" class="lead"></p>
+                                <h1 class="lead">Professor: <a th:text="${usuario.nome}"></a></h1>
+                                <p>CPF: <a th:text="${usuario.cpf}"></a></p>
+                                <p>Login: <a th:text="${usuario.login}"></a></p>
                             </div>
                         </div>
                     </div>
@@ -64,7 +67,8 @@
                         <div class="overflow-auto">
                             <div th:each="materia : ${materias}" class="jumbotron" style="height: 250px;">
                                 <h1 class="lead">Matéria: <a th:text="${materia.nome}"></a></h1>
-                                <p><a>Professor:</a><a th:text="${materia.usuario.nome}"></a></p>
+                                <p><a>Professor: </a><a th:text="${materia.usuario.nome}"></a></p>
+                                <p><a>Descrição: </a><a th:text="${materia.descricao}"></a></p>
                             </div>
                         </div>
                     </div>
@@ -73,9 +77,10 @@
                     <div class="col-4">
                         <div class="overflow-auto">
                             <div th:each="aluno : ${alunos}" class="jumbotron" style="height: 250px;">
-                                <h1>Aluno: <a th:text="${aluno.nome}"></a></h1>
-                                <p th:text="${aluno.ra}" class="lead"></p>
-                            </div>
+                                <h1 class="lead">Aluno: <a th:text="${aluno.nome}"></a></h1>
+                                <p>RA: <a th:text="${aluno.ra}"></a></p>
+                                <p>Telefone: <a th:text="${aluno.telefone}"></a></p>
+                          </div>
                         </div>
                     </div>
 
