@@ -1,19 +1,10 @@
-Tarefas:
-<strong> Por favor utilizar a branch dev para subir as alterações/criação pendentes abaixo: </strong>
+<strong> Um sistema de controle para professores feito em java com Springboot</strong>
 
-- Terminar o diagrama e mostrar para a professora validar.
+Temos dois login por rotas:
+/login -  Destinado ao professor, onde irá mostrar a lista de matérias, aulas, etc ...
+/admin - Destinado ao admin para cadastro de professor, matéria, aula e a vinculação.
 
-- Definir qual servidor vamos utilizar e a conexão com o servidor.
-  - <strong> Terminado por Lucas.</strong>
-  
-- Backend:
-  - Login: <strong>Iniciado por Jonathan.</strong>
-  - Lista de Aulas:
-  - Lista de Alunos por aula:
-  - Painel de Admin(CRUD das aulas):
-  
-- Frontend
-  - Login:
-  - Lista de Aulas:
-  - Lista de Alunos por aula:
-  - Painel de Admin(CRUD das aulas):
+<strong> O arquivo chamado apresentação.pptx, encontra-se o diagrama e o cartão de resopnsabilidade das classes.</strong> 
+
+<strong>URL:</strong> 
+https://escola-1576796372140.azurewebsites.net/
