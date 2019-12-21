@@ -18,14 +18,6 @@
         .bg-unip {
             background-color: #263a7f !important;
         }
-        .esconderTexto{
-		    overflow: hidden;
-		    white-space: nowrap;
-		    text-overflow: ellipsis;
-		  }
-		  .bg-fundo{
-		  	background-color: #f5f5f5;
-		  }
     </style>
 </head>
 
@@ -57,48 +49,37 @@
         </div>
     </nav>
     <main role="main" class="container">
-        
-        <div class="jumbotron bg-fundo" style="height: 328px;">
-            <div th:object="${admin}" class="container">
-                <p >Bem Vindo: <a th:text="${admin.nome}"></a></p>
+
+        <form modelAttribute="materia" method="post" th:object="${materia}" th:action="@{/criarMateria}">
+            <div class="form-group row">
+                <label for="usuario" class="col-2 col-form-label">Professor:</label>
+                <p><select class="form-control" th:field="*{usuario}">
+                        <div th:each="usuario : ${usuarios}">
+                            <option th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+                        </div>
+                    </select></p>
             </div>
-            <div class="container">
-                <div class="row ">
-                    <div class="col-4">
-                        <div class="overflow-auto" style="height: 250px;">
-                            <div th:each="usuario : ${usuarios}" class="jumbotron" style="height: 250px;">
-                                <h1 class="lead">Professor: <a th:text="${usuario.nome}"></a></h1>
-                                <p>CPF: <a th:text="${usuario.cpf}"></a></p>
-                                <p>Login: <a th:text="${usuario.login}"></a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="overflow-auto">
-                            <div th:each="materia : ${materias}" class="jumbotron" style="height: 250px;">
-                                <h1 class="lead">Matéria: <a th:text="${materia.nome}"></a></h1>
-                                <p><a>Professor: </a><a th:text="${materia.usuario.nome}"></a></p>
-                                <p class="esconderTexto"><a>Descrição: </a><a th:text="${materia.descricao}"></a></p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-4">
-                        <div class="overflow-auto">
-                            <div th:each="aluno : ${alunos}" class="jumbotron" style="height: 250px;">
-                                <h1 class="lead">Aluno: <a th:text="${aluno.nome}"></a></h1>
-                                <p>RA: <a th:text="${aluno.ra}"></a></p>
-                                <p>Telefone: <a th:text="${aluno.telefone}"></a></p>
-                          </div>
-                        </div>
-                    </div>
-
-
-                </div>
+            <div class="form-group row">
+                <label for="nomme" class="col-2 col-form-label">Nome:</label>
+                <p><input type="text" class="form-control col-10" placeholder="Nome" th:field="*{nome}"></input></p>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="descricao" class="col-2 col-form-label">Descrição:</label>
+                <p><input type="text" class="form-control col-10" placeholder="Descrição" th:field="*{descricao}"></input></p>
+            </div>
+            <div class="form-group row">
+                <label for="qtdAulas" class="col-2 col-form-label">Quantidade de aulas:</label>
+                <p><input type="text" class="form-control col-10" placeholder="Quantidade de aulas" th:field="*{qtdAulas}"></input></p>
+            </div>
+            <div class="form-group row">
+                <label for="status" class="col-2 col-form-label">Status:</label>
+                <p><input type="number" class="form-control col-10" placeholder="Status" th:field="*{status}"></input></p>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label"></label>
+                <p><input type="submit" value="Criar Matéria" class="btn btn-primary"></input></p>
+            </div>
+        </form>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

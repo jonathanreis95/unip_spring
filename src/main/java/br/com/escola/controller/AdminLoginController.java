@@ -22,13 +22,18 @@ public class AdminLoginController {
 		mv.addObject(new Admin());
 		return mv;
 	}
+	@GetMapping(value = {"/logoutAdmin"})
+		public String fazerLogoutAdmin(HttpServletRequest request, Admin admin) {
+			request.getSession().setAttribute("adminLogado", null);
+			return "redirect:/menu_admin";
+		}
 	
 	@PostMapping("/fazerLoginAdmin")
 	public String fazerLoginAdmin(HttpServletRequest request, Admin admin) {
 		if (loginService.logarAdmin(admin)) {
-			request.getSession().setAttribute("adminlogado", admin);
-			return "redirect:/menu";
+			request.getSession().setAttribute("adminLogado", admin);
+			return "redirect:/menu_admin";
 		}
-		return "/login_admin";
+		return "redirect:/admin";
 	}
 }

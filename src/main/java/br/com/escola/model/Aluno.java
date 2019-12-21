@@ -1,9 +1,13 @@
 package br.com.escola.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -19,4 +23,6 @@ public class Aluno {
 	private String DataCriacao;
 	private int status;	
 	
+	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
+	private List<MateriaAluno> materiaAlunos;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
@@ -13,8 +13,8 @@
   <body class="text-center">
     <form class="form-signin mx-auto" method="post" th:object="${usuario}"
 				th:action="@{/fazerLogin}" style="margin: 20px 0">
-      <img alt="image-logo" src="https://www.unip.br/img/logo-unip-home.png" style="margin-left: -15px"/>
-      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+		<img alt="image-logo" src="https://www.unip.br/img/logo-unip-home.png" style="margin-left: -15px"/>			      
+      <h1 class="h3 mb-3 font-weight-normal"></h1>
       <label for="inputLogin" class="sr-only"></label>     
       <input id="inputLogin" required type="text" class="form-control"
 						placeholder="Usuário" th:field="*{login}" />
